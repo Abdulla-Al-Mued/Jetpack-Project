@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class LiveDataDemoViewModel : ViewModel() {
 
-    private val factsLiveDataObject = MutableLiveData<String>("This is a fact")
+    private val factsLiveDataObject = MutableLiveData("This is a fact")
 
     val factsLiveData : LiveData<String>
         get() = factsLiveDataObject

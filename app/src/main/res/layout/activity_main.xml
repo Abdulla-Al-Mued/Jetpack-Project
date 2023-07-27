@@ -9,6 +9,11 @@
             name="quote"
             type="com.example.jetpackcomponent.dataClass.Quote"
             />
+        
+        <variable
+            name="post"
+            type="com.example.jetpackcomponent.dataClass.Post" />
+
         <variable
             name="mainViewModel"
             type="com.example.jetpackcomponent.viewModels.LiveDataDemoViewModel" />
@@ -24,11 +29,20 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+        <ImageView
+            android:id="@+id/myImage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            imageFromUrl="@{post.url}"
+            app:layout_constraintBottom_toTopOf="@+id/counterTxt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:id="@+id/counterTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.countString}"
+            android:text="@{viewModel.countLiveData}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
