@@ -15,7 +15,6 @@ class UserAdapter(private val userList: List<Result>, private val context : Cont
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)
-//        Toast.makeText(parent.context, "adapter called"+ userList.size, Toast.LENGTH_SHORT).show()
         return UserViewHolder(itemView)
     }
 
@@ -29,7 +28,6 @@ class UserAdapter(private val userList: List<Result>, private val context : Cont
 
         holder.email.text = currentItem.email
         holder.itemNameTextView.text = currentItem.name.first + currentItem.name.last
-//        Toast.makeText(context, "adapter called"+ userList.size, Toast.LENGTH_SHORT).show()
 
     }
 

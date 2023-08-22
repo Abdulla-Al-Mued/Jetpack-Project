@@ -3,8 +3,9 @@ package com.example.jetpackcomponent.randomUser
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.jetpackcomponent.randomUser.model.UserInfo
+import javax.inject.Inject
 
-class UserRepository(private val apiInterface: ApiInterface) {
+class UserRepository @Inject constructor(private val apiInterface: ApiInterface) {
 
     private val usersLiveData : MutableLiveData<UserInfo> = MutableLiveData()
 

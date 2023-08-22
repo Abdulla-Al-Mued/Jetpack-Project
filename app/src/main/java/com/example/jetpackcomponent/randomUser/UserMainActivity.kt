@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.jetpackcomponent.R
 import com.example.jetpackcomponent.connectivity.NetworkConnectivity
 import com.example.jetpackcomponent.randomUser.model.Result
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UserMainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView : RecyclerView
@@ -45,26 +47,19 @@ class UserMainActivity : AppCompatActivity() {
         })
 
 
-        userViewModel = ViewModelProvider(this, UserViewModelFactory(
-            UserRepository(RetrofitHelper.getInstance().create(ApiInterface::class.java))
-        )
-        )[UserViewModel::class.java]
+        userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
 
         userViewModel.users.observe(this, Observer {
 
             val userInfo = it.results
-//            userList = userInfo
+
             userList.clear()
             userList.addAll(userInfo)
 
-            // Initialize the adapter after receiving the data
 
-//            Toast.makeText(this, ""+userList.size, Toast.LENGTH_SHORT).show()
-
-            // Notify the adapter that data has changed (if needed)
             userAdapter.notifyDataSetChanged()
-            //Log.d("yo Nigga", userInfo.toString())
+
             userInfo.forEach{result ->
                 Log.d("User Item", result.name.first + result.name.last)
             }
